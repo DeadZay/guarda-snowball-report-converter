@@ -1,9 +1,9 @@
-package com.github.deadzay.report;
+package com.github.deadzay.report.mapping;
 
 import com.github.deadzay.report.guarda.GuardaReport;
 import com.github.deadzay.report.guarda.Type;
 import com.github.deadzay.report.snowball.Event;
-import com.github.deadzay.report.snowball.SnowballDAO;
+import com.github.deadzay.report.snowball.SnowballReport;
 import org.mapstruct.*;
 
 import java.text.MessageFormat;
@@ -17,7 +17,7 @@ public interface GuardaSnowballMapper {
             @Mapping(source = "amount", target = "quantity"),
             @Mapping(source = "fee", target = "feeTax")
     })
-    SnowballDAO guardaToSnowball(GuardaReport guardaDAO);
+    SnowballReport guardaToSnowball(GuardaReport guardaDAO);
 
     @ValueMapping(source = "HASH_LINK_TYPE", target = "Stock_As_Dividend")
     @ValueMapping(source = MappingConstants.ANY_UNMAPPED, target = MappingConstants.NULL)

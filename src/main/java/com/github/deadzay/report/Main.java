@@ -3,7 +3,8 @@ package com.github.deadzay.report;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.github.deadzay.report.guarda.GuardaReport;
-import com.github.deadzay.report.snowball.SnowballDAO;
+import com.github.deadzay.report.mapping.GuardaSnowballMapper;
+import com.github.deadzay.report.snowball.SnowballReport;
 import org.apache.commons.cli.*;
 import org.apache.commons.collections4.IteratorUtils;
 import org.mapstruct.factory.Mappers;
@@ -58,11 +59,11 @@ public class Main {
 
             GuardaSnowballMapper guardaSnowballMapper = Mappers.getMapper(GuardaSnowballMapper.class);
 
-            List<SnowballDAO> snowballList = guardaList.stream()
+            List<SnowballReport> snowballList = guardaList.stream()
                     .map(guardaSnowballMapper::guardaToSnowball)
                     .toList();
 
-            mapper.writer(mapper.schemaFor(SnowballDAO.class).withHeader())
+            mapper.writer(mapper.schemaFor(SnowballReport.class).withHeader())
                     .writeValue(snowballReportFile, snowballList);
 
         } catch (ParseException | IOException exception) {

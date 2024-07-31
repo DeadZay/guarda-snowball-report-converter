@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class SnowballDAO {
+public class SnowballReport {
 
     @JsonProperty("Event")
     private Event event;
