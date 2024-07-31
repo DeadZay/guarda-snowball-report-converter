@@ -8,6 +8,9 @@ import org.mapstruct.*;
 
 import java.text.MessageFormat;
 
+/**
+ * TODO Добавить конвертацию даты-времени для snowball (2024-05-29 00:00:00)
+ */
 @Mapper
 public interface GuardaSnowballMapper {
 
